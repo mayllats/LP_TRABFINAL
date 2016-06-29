@@ -104,18 +104,16 @@ public class trabalhofinal {
 		 * @param vestoque5 vetor que contem valores de códigos digitados         
 		 */
 	    public static void maiorPreco (int codigo5[],String desc5[], double preco5[],double qtestoque5[], double vestoque5[]){
-	        	double maiorpreco = 0;
 				int cont=0, i;
+				System.out.println("Produto mais caro:");
+				System.out.println("Código \t\t Descrição \t\t Preço \t\t qt. no estoque \t\t valor do p. em estoque");
 				for (i = 0; i < preco5.length; i++) {
-					if (preco5[i] > maiorpreco) {
-						maiorpreco = preco5[i];
-						cont++;
+					if (preco5[i] > preco5[cont]) {
+						cont=i;		
 					}
-						System.out.println("Produto mais caro:");
-						System.out.println("Código \t\t Descrição \t\t Preço \t\t qt. no estoque \t\t valor do p. em estoque");
-						System.out.println(codigo5[i] + "\t\t  " + desc5[i] + "\t\t\t" + preco5[i] + "\t\t\t" + qtestoque5[i]
-								+ "\t\t\t\t" + vestoque5[i]);	
 					}
+				System.out.println(codigo5[cont] + "\t\t  " + desc5[cont] + "\t\t\t" + preco5[cont] + "\t\t\t" + qtestoque5[cont]
+						+ "\t\t\t\t" + vestoque5[cont]);	
 				}
 	    
 	    
@@ -128,7 +126,7 @@ public class trabalhofinal {
 		 * @param vestoque6 vetor que contem valores de códigos digitados        
 		 */
 	    public static void estoqueBaixo (int codigo6[],String desc6[], double preco6[],double qtestoque6[], double vestoque6[]){
-	       double estbaixo=0;
+	      
 	       int i;
 				for (i=0;i<qtestoque6.length;i++){
 					if (qtestoque6[i] <10 ){
@@ -149,8 +147,9 @@ public class trabalhofinal {
 	    	int i;
 	      double atotal=0;
 				for(i=0;i<preco7.length;i++){
-					atotal = atotal+preco7[i];
+					atotal = atotal+vestoque7[i];
 				}
+				System.out.println(atotal);
 	    }
 	    
 	    
@@ -163,39 +162,41 @@ public class trabalhofinal {
 		 * @param vestoque8 vetor que contem valores de códigos digitados       
 		 */
 	    public static void vendas (int codigo8[],String desc8[], double preco8[],double qtestoque8[], double vestoque8[]){
-	    	int i;
 	        Scanner sc = new Scanner(System.in);
-	     	System.out.println("Código do produto:");
-				double cod2;
-				cod2=sc.nextDouble();
-				for(i=0;i<codigo8.length;i++){
-					if (cod2 != codigo8[i]){
-						System.out.println("Erro! produto não cadastrado!");
+	    	int i;
+	    	double cod2;
+	    	int quant2;
+	    	cod2 = 0;
+	    	quant2=0;
+	 	    System.out.println("Código do produto:");
+	 		cod2=sc.nextDouble();
+	 				for(i=0;i<codigo8.length;i++){
+	 					if(cod2 == codigo8[i]){
+	 						System.out.println("Quantidade de produtos:");
+				        	quant2 = sc.nextInt();
+				        	double vendas;
+				        	vendas = 0.0;
+				        		if (quant2 <= qtestoque8[i]){
+				        			vendas = quant2*preco8[i];
+				        			System.out.println("Valor total a pagar:"+vendas);
+				        			vestoque8[i]=vestoque8[i]-vendas;
+				        			qtestoque8[i]= qtestoque8[i]-quant2; 
+				        			System.out.println("Venda finalizada com sucesso!");
+				        		}
+				        		else {
+				        			System.out.println("Erro! quantidade em estoque insuficiente.");
+				        			System.out.println("Quantidade de produtos:");
+						        	quant2 = sc.nextInt();
+
+				        		}
+				        		}
+	 					else {
+	 						System.out.println("Erro! produto não cadastrado!");
+				        		}
 					}
-					else {
-					    System.out.println("Quantidade de produtos:");
-				        int quant2;
-			        	quant2 = sc.nextInt();
-				for(i=0;i<qtestoque8.length;i++){
-					if (quant2 > qtestoque8[i]){
-						System.out.println("Erro! quantidade em estoque insuficiente.");
-					}
-					else {
-				    System.out.println("Total a pagar:");
-				        double vendas;
-				        vendas=0;
-			    	for(i=0;i<qtestoque8.length;i++){
-					    vendas = quant2*preco8[i];
-					
-					    }
-					    System.out.println("Valor total:"+vendas);
-				    	}
-				    }
-			    }
-					    
-			}
-	    }
-	    
+	 				
+	 				}
+
 	    /**
 		 * função para informar o ativo total disponivel em estoque
 		 * @param codigo9 vetor que contem valores de códigos digitados 
@@ -219,7 +220,7 @@ public class trabalhofinal {
 			}
 			
 	    	else if (escolha == 3) {
-				// função - maiorPreco//
+				// função  - maiorPreco//
 				maiorPreco (codigo9, desc9, preco9, qtestoque9, vestoque9);
 			}
 
@@ -235,10 +236,11 @@ public class trabalhofinal {
 			}
 			
 	    	else if (escolha == 6){
-			    	System.out.println("Vendas:");
-				// função - vendas//
-				vendas (codigo9, desc9, preco9, qtestoque9, vestoque9);
-		    }
+	    		 System.out.println("Vendas:");
+								// função - vendas//
+								vendas (codigo9, desc9, preco9, qtestoque9, vestoque9);
+							}
+			    	
 				
 	    	else if (escolha == 7){
 				System.out.println("Encerrado!");
