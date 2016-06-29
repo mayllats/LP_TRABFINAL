@@ -1,0 +1,100 @@
+teste trabalho 3
+
+produtos: 8
+
+
+(entradas de produtos)
+codigo		descrição 	preço 		qt. no estoque	
+0001 		café		10.0 			3		
+0002 		manteiga	 5.0 			5	
+0003 		feijão		15.0 			6
+0004 		arroz		10.0 			8
+0005 		açucar		 8.0 			10
+0006 		sal		 2.0 			20
+0007 		farinha		 4.0 			5
+0008 		oleo		 7.0 			4
+
+OPÇÕES:
+------------------------------
+1 – Imprimir tabela
+2 – Pesquisar produto
+3 – Produto mais caro
+4 – Produtos com estoque baixo
+5 – Ativo total do estoque
+6 – Venda
+7 – Sair
+
+escolher opção desejada: 
+
+1 - tabela Impressa:
+codigo		descrição 	preço 		qt. no estoque		valor em estoque
+0001 		café		10.0 			3			30.0
+0002 		manteiga	 5.0 			5			25.0
+0003 		feijão		15.0 			6			90.0
+0004 		arroz		10.0 			8			80.0
+0005 		açucar		 8.0 			10			80.0
+0006 		sal		 2.0 			20			40.0
+0007 		farinha		 4.0 			5			20.0
+0008 		oleo		 7.0 			4			28.0
+---------------------------------------------------------------------------------------------
+
+2 - pesquisar produto: 0001
+codigo 		descrição	Preço	qt. estoque
+0001 		café 		 10.0  		3 
+
+2 - pesquisar produto
+codigo: 00010
+erro - produto não cadastrado! 
+
+----------------------------------------------------------------------------------------------
+
+3 - maior preço: 
+codigo 		descrição	Preço	qt. estoque 	valor em estoque
+0003		feijão 		 15.0  		6 		90.0
+
+----------------------------------------------------------------------------------------------
+
+4 - estoque baixo:
+codigo		descrição 	qt. no estoque
+0001 		café			3
+0002 		manteiga		5
+0003 		feijão			6
+0004 		arroz			8
+0007 		farinha			5
+0008 		oleo			4
+----------------------------------------------------------------------------------------------
+
+5 - Ativo total: 
+393.0
+
+
+6 - VENDA
+----------------------------- 
+codigo: 00010
+erro - não existe! 
+
+
+codigo:0001
+quantidade: 4
+erro - estoque insuficiente!
+
+
+codigo:0001
+quantidade: 3
+venda concluida com sucesso! (lembrar de abater do valor total de quantidade e valor no estoque)
+
+7 - Sair
+
+
+(caso digite outro numero)
+erro! digite uma das opções!
+
+OPÇÕES:
+------------------------------
+1 – Imprimir tabela
+2 – Pesquisar produto
+3 – Mostrar dados do produto mais caro
+4 – Mostrar código e descrição dos produtos cuja quantidade está abaixo de 10
+5 – Ativo total do estoque
+6 – Efetuar uma venda
+7 – Sair
